@@ -16,7 +16,7 @@ USER        container
 ENV         HOME=/home/container USER=container
 WORKDIR     /home/container
 
-COPY        ./entrypoint.sh /entrypoint.sh
+ADD         ./entrypoint.sh /entrypoint.sh
 RUN         chmod +x /entrypoint.sh
 
 CMD         ["/bin/ash", "/entrypoint.sh"]
