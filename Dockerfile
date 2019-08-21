@@ -8,7 +8,7 @@ RUN         echo "http://nl.alpinelinux.org/alpine/edge/testing" >> /etc/apk/rep
 
 ADD         bin/* /usr/local/bin/
 
-RUN         chmod /bin/* 755 \
+RUN         chmod +x /bin/* \
             && ln -s /usr/bin/wine64 /usr/bin/wine
 
 
