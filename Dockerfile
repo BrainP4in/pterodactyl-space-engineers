@@ -8,7 +8,7 @@ RUN         echo "http://nl.alpinelinux.org/alpine/edge/testing" >> /etc/apk/rep
 
 ADD         bin/* /usr/local/bin/
 
-RUN         chmod +x /bin/* \
+RUN         chmod /bin/* 755 \
             && ln -s /usr/bin/wine64 /usr/bin/wine
 
 
@@ -16,7 +16,6 @@ USER        container
 ENV         HOME=/home/container USER=container
 WORKDIR     /home/container
 
-ADD         ./entrypoint.sh /entrypoint.sh
-RUN         chmod +x /entrypoint.sh
+COPY       ./entrypoint.sh /entrypoint.sh
 
 CMD         ["/bin/ash", "/entrypoint.sh"]
